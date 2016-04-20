@@ -25,12 +25,13 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         
-        versionName "1.8.3"
-        if (System.getenv("BUILD_NUMBER") != null) {
+        
+        if (System.getenv("BUILD_NUMBER") != null && System.getenv("BUILD_VERSION") != null) {
             versionCode System.getenv("BUILD_NUMBER").toInteger()
-            setProperty("archivesBaseName", "Actor-$versionName-$versionCode")
-            println "##teamcity[buildNumber '$versionName($versionCode)']"
+            versionName System.getenv("BUILD_VERSION")
+            setProperty("archivesBaseName", "Actor-Open-$versionName-$versionCode")
         } else {
+            versionName "1.0.0"
             versionCode 1000000
         }
     }
