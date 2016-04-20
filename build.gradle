@@ -26,9 +26,9 @@ android {
         targetSdkVersion 23
         
         
-        if (System.getenv("BUILD_NUMBER") != null && System.getenv("BUILD_VERSION") != null) {
-            versionCode System.getenv("BUILD_NUMBER").toInteger()
+        if ((System.getenv("BUILD_NUMBER") != null) && (System.getenv("BUILD_VERSION") != null)) {
             versionName System.getenv("BUILD_VERSION")
+            versionCode System.getenv("BUILD_NUMBER").toInteger()
             setProperty("archivesBaseName", "Actor-Open-$versionName-$versionCode")
         } else {
             versionName "1.0.0"
