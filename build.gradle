@@ -51,8 +51,6 @@ android {
             if (project.hasProperty("ACTOR_KEYSTORE")) {
                 signingConfig signingConfigs.release
             }
-
-            ext.betaDistributionGroupAliases = "actor-testers"
         }
     }
 
