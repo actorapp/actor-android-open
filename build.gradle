@@ -27,7 +27,7 @@ android {
         
         if (System.getenv("BUILD_VERSION") != null) {
             // Convering 1.8.3(123) -> ["1.8.3", "123"]
-            buildVersions = System.getenv("BUILD_VERSION").split('\(')
+            buildVersions = System.getenv("BUILD_VERSION").split("\\(")
             buildVersions[1] = buildVersions[1].substring(0, buildVersions[1].length() - 1)
             versionName buildVersions[0]
             versionCode buildVersions[1].toInteger()
